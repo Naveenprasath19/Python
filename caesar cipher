@@ -1,0 +1,26 @@
+alphaet =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+diection = input("en or de\n")
+plain_text=input("message\n").lower()
+shift_amount=int(input("Shift number\n"))
+def encrypt(plain_text,shift_amount):
+    ciper_text=""
+    for letter in plain_text:
+        position = alphaet.index(letter)
+        new_position=position+shift_amount
+        new_letter = alphaet[new_position]
+        ciper_text+=new_letter
+    print(f"the encoded text is {ciper_text}")
+def decrypt(ciper_text,shift_amount):
+    plain_text =""
+    for letter in ciper_text:
+        position= alphaet.index(letter)
+        new_position=position-shift_amount
+        plain_text= alphaet[new_position]
+    print(f"the decoded text {plain_text}")
+if diection=='en':
+    encrypt(plain_text,shift_amount)
+elif diection=='de':
+    decrypt(plain_text,shift_amount)
+else:
+    print("invalid key")
+    
